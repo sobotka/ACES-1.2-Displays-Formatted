@@ -27,3 +27,17 @@ To the ACES folks who are reading this, please do your part and support the sane
 This configuration was generated using the Python scripts available in the offical and as-official-as-possible versions. The full configuration Python command line is as follows:
 
 `aces_1.2/python/bin/create_aces_config -a aces-dev/transforms/ctl --lutResolution1d 4096 --lutResolution3d 65 -c aces_1.2 --createMultipleDisplays --dontBakeSecondaryLUTs`
+
+## What Do I Need to Know to Use This in Blender?
+
+This configuration has been modified slightly to provide additional data such as an XYZ role that the Sky and Wavelength shaders depend on to find the rendering space. Additionally, several Blender-specific roles have been added to set default color spaces for textures.
+
+Despite this, due to limitations in Blender some aspects are NOT FIXABLE. These are as follows:
+
+* Blackbody Node (including Principled Volume): Cycles' Blackbody shader does not support non-sRGB colors. It always generates sRGB/709 output colors, which will then be used by the rest of the shading system as though they were ACEScg colors. This results in oversaturation of colors other than 6500K. (Note that this shader also uses 6500K as a whitepoint, even if this is not the rendering space white point).
+
+* Principled Hair: Melanin colors are hardcoded as sRGB/rec709. Results will be oversaturated.
+
+* Wavelength Node: While this node functions correctly, due to the wider rendering (AP1) primaries used with ACES this shader produces visually different results than it does when using linear-sRGB as the rendering space. This is most commonly seen with low wavelengths (ex 400nm) producing less magenta under ACES than they do under linear-sRGB. THIS IS NOT A BUG OR A COLOR MANAGEMENT ERROR.
+
+* Color Pickers: The HSV tab of Blender's color picker and the color-wheel widget will not function correctly when using ACES.
