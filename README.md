@@ -10,9 +10,13 @@ Despite this, due to limitations in Blender some aspects are NOT FIXABLE. These 
 
 * Principled Hair: Melanin colors are hardcoded as sRGB/rec709. Results will be oversaturated.
 
-* Wavelength Node: While this node functions correctly, due to the wider rendering (AP1) primaries used with ACES this shader produces visually different results than it does when using linear-sRGB as the rendering space. This is most commonly seen with low wavelengths (ex 400nm) producing less magenta under ACES than they do under linear-sRGB. THIS IS NOT A BUG OR A COLOR MANAGEMENT ERROR.
+* Wavelength Node: While this node functions correctly, due to the wider (AP1) rendering primaries used with ACES this shader produces visually different results than it does when using linear-sRGB as the rendering space. This is most commonly seen with low wavelengths (ex 400nm) producing less magenta under ACES than they do under linear-sRGB. THIS IS NOT A BUG OR A COLOR MANAGEMENT ERROR.
 
-* Color Pickers: The HSV tab of Blender's color picker and the color-wheel widget will not function correctly when using ACES.
+* Color Pickers - HSV: The HSV tab of Blender's color picker and the color-wheel widget will not function correctly when using ACES.
+
+* Color Pickers - Color spaces: All RGB values entered in color pickers are in ACEScg space. Old scenes will not be modified automatically, previously entered sRGB/709 values will be used as is but treated as if they were ACEScg. They will need to be manually converted from linear-sRGB to ACEScg.
+
+* Color Pickers - Hex codes: The hex code tab of Blender's color picker does not produce meaningful output under ACES and should be ignored.
 
 ## What is This?
 
