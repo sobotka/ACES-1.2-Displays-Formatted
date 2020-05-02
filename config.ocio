@@ -2,7 +2,11 @@ ocio_profile_version: 1
 
 search_path: luts
 strictparsing: true
-luma: [0.2126, 0.7152, 0.0722]
+# Start Blender Luma
+# Blender will honour the luminance coefficients for converting
+# to and from RGB to greyscale / single values 
+luma: [0.27222872 0.67408177 0.05368951]
+# End Blender Luma
 
 description: An ACES config generated from python
 
