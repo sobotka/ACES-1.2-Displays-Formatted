@@ -130,7 +130,7 @@ displays:
     - !<View> {name: Output Transform, colorspace: Output - sRGB (D60 sim.)}
 
 active_displays: [DCDM, DCDM (P3D60 Limited), DCDM (P3D65 Limited), P3-D60, P3-D65 ST2084 (1000 nits), P3-D65 ST2084 (2000 nits), P3-D65 ST2084 (4000 nits), P3-DCI (D60 simulation), P3-DCI (D65 simulation), P3D65, P3D65 (D60 simulation), P3D65 (Rec.709 Limited), P3D65 ST2084 (108 nits), Rec.2020, Rec.2020 (P3D65 Limited), Rec.2020 (Rec.709 Limited), Rec.2020 HLG (1000 nits), Rec.2020 ST2084 (1000 nits), Rec.2020 ST2084 (2000 nits), Rec.2020 ST2084 (4000 nits), Rec.709, Rec.709 (D60 sim.), sRGB, sRGB (D60 sim.)]
-active_views: [Raw, Log, Output Transform]
+active_views: [Output Transform, Log, Raw]
 
 colorspaces:
   - !<ColorSpace>
