@@ -18,6 +18,10 @@ Despite this, due to limitations in Blender some aspects are NOT FIXABLE. These 
 
 * Color Pickers - Hex codes: The hex code tab of Blender's color picker does not produce meaningful output under ACES and should be ignored.
 
+* Material Preview Mode: The built-in background HDRIs are not properly converted to ACEScg before rendering, and will appear over saturated.
+
+A note about float textures: Floating point textures (such as OpenEXR files) will be use the ACEScg input space by default. This is consistent with the normal ACES workflow and standard OCIO configuration. However, please bear in mind this is not the correct input space for most HDRI maps you will find on stock texture sites. Most of these files are prepared with Linear sRGB primaries instead of ACEScg. In order to handle this, the input space should be changed to "Utility - Linear - sRGB"
+
 ## What is This?
 
 This is a directly generated repository of the as-official-as-possible ACES 1.2 configuration.
