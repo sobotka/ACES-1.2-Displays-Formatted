@@ -2,7 +2,7 @@
 
 ## What is This?
 
-This is a directly generated repository of the as-official-as-possible ACES 1.2 configuration.
+This is a directly generated repository of the as-official-as-possible ACES 1.2 configuration. [The current state of the most official ACES 1.2 configuration is located via the Colour Science OpenColorIO configuration repository](https://github.com/colour-science/OpenColorIO-Configs/tree/feature/aces-1.2-config/aces_1.2).
 
 ## Why Does This Exist?
 
