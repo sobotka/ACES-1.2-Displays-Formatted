@@ -27,8 +27,8 @@ roles:
   #Blender specific roles for texture inputs
   default_byte: Utility - sRGB - Texture
   default_float: ACES - ACEScg
-  #Blender XYZ role, required to set rendering space for some shaders, this space should always be a conversion between XYZ and the space set in the "scene_linear" role
-  XYZ: ACEScg XYZ
+  #Blender XYZ role, required to set rendering space for some shaders, this space should always be a conversion between XYZ and the reference space
+  XYZ: Utility - XYZ - D60
   #End Blender changes
 
 displays:
@@ -208,21 +208,6 @@ colorspaces:
     allocation: lg2
     allocationvars: [-8, 5, 0.00390625]
     to_reference: !<MatrixTransform> {matrix: [0.695452, 0.140679, 0.163869, 0, 0.0447946, 0.859671, 0.0955343, 0, -0.00552588, 0.00402521, 1.0015, 0, 0, 0, 0, 1]}
-    
-    #Blender changes: Add an ACEScg to XYZ role, Blender requires this to set rendering space colors on some shaders
-  - !<ColorSpace>
-    name: ACEScg XYZ
-    family: ACES
-    equalitygroup: ""
-    bitdepth: 32f
-    description: |
-      The ACEScg to XYZ transform
-
-    isdata: false
-    allocation: lg2
-    allocationvars: [-8, 5, 0.00390625]
-    from_reference: !<MatrixTransform> {matrix: [0.66245418, 0.13400421, 0.15618769, 0, 0.27222872, 0.67408177,  0.05368952, 0, -0.00557465, 0.00406073,  1.0103391, 0, 0, 0, 0, 1]}
-    #End Blender changes
 
   - !<ColorSpace>
     name: Input - ADX - ADX10
